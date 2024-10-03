@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+.venv/
+docker-data/
+mongo-data/
+.DS_Store
+*.log
+.idea/
+*.env

@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  fastapi-app:
+    build: .
+    container_name: fastapi-posts-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/your_db_name
+    volumes:
+      - .:/app
+    restart: always
+
+  mongodb:
+    image: mongo:7.0.7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+volumes:
+  mongo-data:
